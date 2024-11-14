@@ -1,0 +1,29 @@
+﻿@model List<CatViewModel>
+<h1>All Cats Info </h1>
+<hr />
+<table class="table">
+<thead>
+    <tr>
+        <th> Name </th>
+        <th> Age </th>
+        <th> Breed </th>
+        <th> Image</th>
+        <th>Id</th>
+    </tr>
+
+</thead>
+<tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th scope="col">@item.Name</th>
+            <th scope="col">@item.Age</th>
+            <th scope="col">@item.Breed</th>
+            <th scope="col"><img src="@item.ImgUrl" width="20%" /></th>
+                <th> <a asp-controller="Cat" asp-action="Details" asp-route-id="@item.Id">Details</a></th>
+                <th> <a asp-controller="Cat" asp-action="Edit" asp-route-id="@item.Id">Edit</a></th>
+                <th> <a asp-controller="Cat" asp-action="Delete" asp-route-id="@item.Id">Delete</a></th>
+        </tr>
+    }
+</tbody>
+</table>
